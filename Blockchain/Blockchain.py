@@ -4,7 +4,7 @@ from Block import Block
 
 class Blockchain:
     def __init__(self):
-        b = Block(0, "Hello World", "0", "Random Nonce", 8)
+        b = Block(0, "Genesis Block", "0", "Default Nonce", 8)
         self.blocks = [b, ]
 
     def __lastBlock(self):
@@ -21,6 +21,14 @@ class Blockchain:
         for b in self.blocks:
             x.append(b.__dict__)
         return x
+    
+    def onTransaction(self, sender, receiver, amount, sign):
+        sender.newTransaction(receiver.node, amount, sign)
+
+
+    def checkValidity(self):
+        pass
+
 
 
 
