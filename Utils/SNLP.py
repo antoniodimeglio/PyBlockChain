@@ -1,11 +1,18 @@
 #This module defines the Simple Node Lookup Protocol (SNLP).
 #This is not an actual protocol, I just wanted it to sound fancy.
-from Node import Node
-from os import path
+import os
+import inspect
+import sys
 from uuid import uuid4
 from Security import createStoreKeys
 import requests
 import json
+
+currentdir = os.path.dirname(os.path.abspath(inspect.getfile(inspect.currentframe())))
+parentdir = os.path.dirname(currentdir)
+sys.path.insert(0,parentdir) 
+
+import Node
 
 
 nodes = []
