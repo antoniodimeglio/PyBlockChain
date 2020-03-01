@@ -1,9 +1,12 @@
 from uuid import uuid4
-from Utils import Security
+from Utils.Security import createStoreKeys
 
 class Node(): #template that is used to save all the other nodes to connect to
-    def __init__(self, hostname, publicKey, id=None):
+    def __init__(self, hostname, publicKey=None, id=None):
         self.hostname = hostname
         self.id = id or uuid4()
-        self.publicKey = publicKey
+        keys = createStoreKeys()
+        self.publicKey = publicKey or keys[1]
+        self.privateKey = keys[0]
+        
         
