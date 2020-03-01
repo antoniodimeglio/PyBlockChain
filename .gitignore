@@ -5,5 +5,5 @@
 !.vscode/launch.json
 !.vscode/extensions.json
 *.code-workspace
-.pem
-.pyc
+*.pem
+*.pyc
