@@ -5,11 +5,13 @@ from uuid import uuid4
 from utils import createStoreKeys
 import json
 
-        
-nodes = []
-jsonNodes = ""
 
-def localNodesLookup(): #looks for locally saved nodes and loads them
+
+def localNodesLookup(): #looks for locally saved nodes and loads them 
+
+    nodes = []
+    jsonNodes = ""
+
     if (path.exists("nodes.json")): #loads nodes to communicate with
         with open("nodes.json") as fileStream:
             file = ""
@@ -29,7 +31,6 @@ def addNode(newNode):
     nodes.append(newNode)
     jsonNodes.append({'hostname':newNode.hostname, 'id':newNode.id, 'publickey':newNode.publicKey})
 
-
-def getNodes():
-    return nodes
+def lookUpNodes():
+    
 
