@@ -1,6 +1,7 @@
 from cryptography.hazmat.backends import default_backend
 from cryptography.hazmat.primitives.asymmetric import rsa
 from cryptography.hazmat.primitives import serialization
+from cryptography.hazmat.primitives import hashes
 from os import path
 
 
@@ -50,6 +51,11 @@ def createStoreKeys(): #function that generates both a private and public key
 
     return (privateKey, publicKey)
 
+def hashBlock(block):
+    digest = hashes.Hash(hashes.SHA256(), backend=default_backend())
+    digest.update(block)
+    return digest.finalize()
+    
 
 
 
